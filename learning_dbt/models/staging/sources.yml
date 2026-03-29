@@ -8,3 +8,4 @@ sources:
       - name: customer
       - name: web_sales
       - name: promotion
+      - name: date_dim

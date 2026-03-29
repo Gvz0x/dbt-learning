@@ -20,4 +20,13 @@ renamed as (
 
 )
 
-select * from renamed
+select
+    customer_sk,
+    customer_id,
+    first_name,
+    last_name,
+    email,
+    birth_year,
+    is_preferred_customer,
+    birth_country
+from renamed

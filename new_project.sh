@@ -3,9 +3,8 @@
 
 set -e
 
-PROJECTS_DIR="/c/Users/Angelo/Documents/dbt-projects"
+PROJECTS_DIR="$HOME/dbt-learning"
 PROFILES="$HOME/.dbt/profiles.yml"
-SHARED_VENV="$PROJECTS_DIR/shared-venv"
 
 # ── Load credentials from .env ─────────────────────────────────────────────────
 ENV_FILE="$PROJECTS_DIR/.env"
@@ -37,17 +36,21 @@ else
   PROJECT_DIR="$PROJECTS_DIR/experiments/$PROJECT_NAME"
 fi
 
-# ── Activate shared venv ───────────────────────────────────────────────────────
-echo ""
-echo "Activating shared virtual environment..."
-source "$SHARED_VENV/Scripts/activate"
-
 # ── Create the dbt project ─────────────────────────────────────────────────────
 echo ""
 echo "Creating dbt project: $PROJECT_NAME"
 mkdir -p "$(dirname "$PROJECT_DIR")"
 cd "$(dirname "$PROJECT_DIR")"
 dbt init "$PROJECT_NAME" --skip-profile-setup
+
+# ── Create a per-project venv ──────────────────────────────────────────────────
+echo ""
+echo "Creating virtual environment for $PROJECT_NAME..."
+cd "$PROJECT_DIR"
+python3 -m venv .venv
+source .venv/bin/activate
+pip install --quiet dbt-snowflake
+echo "Virtual environment ready."
 
 # ── Add profile to profiles.yml ────────────────────────────────────────────────
 echo ""
@@ -73,10 +76,9 @@ EOF
 # ── Test the connection ────────────────────────────────────────────────────────
 echo ""
 echo "Testing Snowflake connection..."
-cd "$PROJECT_DIR"
 dbt debug
 
 echo ""
 echo "Done! Your project is ready at: $PROJECT_DIR"
-echo "The shared venv is already active. To re-activate it later:"
-echo "  source $SHARED_VENV/Scripts/activate"
+echo "To activate this project's venv:"
+echo "  cd $PROJECT_DIR && source .venv/bin/activate"

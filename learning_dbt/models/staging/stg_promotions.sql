@@ -23,4 +23,16 @@ renamed as (
 
 )
 
-select * from renamed
+select
+    promo_sk,
+    promo_id,
+    promo_name,
+    promo_cost,
+    promo_purpose,
+    channel_email,
+    channel_tv,
+    channel_radio,
+    channel_catalog,
+    channel_direct_mail,
+    is_discount_active
+from renamed

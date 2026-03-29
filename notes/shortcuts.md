@@ -9,22 +9,23 @@ newdbt <project_name>
 ### What it does
 1. Asks whether it's an experiment or a real project
 2. Scaffolds the dbt project in `experiments/` or `projects/` accordingly
-3. Adds a Snowflake profile to `~/.dbt/profiles.yml` automatically
-4. Uses the project name as the Snowflake schema
-5. Activates the shared venv and runs `dbt debug` to confirm the connection
+3. Creates a per-project `.venv` and installs `dbt-snowflake`
+4. Adds a Snowflake profile to `~/.dbt/profiles.yml` automatically
+5. Uses the project name as the Snowflake schema
+6. Runs `dbt debug` to confirm the connection
 
 ### Where things live
 | File | Location | Purpose |
 |------|----------|---------|
-| Shortcut function | `~/.bashrc` | Makes `newdbt` available in every terminal |
-| Script | `dbt-projects/new_project.sh` | The actual logic |
-| Credentials | `dbt-projects/.env` | Update here if Snowflake details change (never commit this file) |
-| Shared venv | `dbt-projects/shared-venv/` | One Python env for all dbt projects |
+| Shortcut function | `~/.zshrc` | Makes `newdbt` available in every terminal |
+| Script | `~/dbt-learning/new_project.sh` | The actual logic |
+| Credentials | `~/dbt-learning/.env` | Update here if Snowflake details change (never commit this file) |
+| Per-project venv | `<project>/.venv/` | Isolated Python env per dbt project |
 
 ### If `newdbt` is not recognised in a terminal
 Run this once to reload your shortcuts:
 ```bash
-source ~/.bashrc
+source ~/.zshrc
 ```
 
 ---
@@ -35,22 +36,22 @@ source ~/.bashrc
 dbt-learn
 ```
 
-Navigates to `learning_dbt`, activates the shared venv, and opens Claude.
+Navigates to `learning_dbt`, activates the venv, and opens Claude.
 Claude automatically reads your session notes and picks up where you left off
 via the `/dbt-learn` custom command.
 
-Session notes are at: `dbt-projects/notes/session_progress.md`
+Session notes are at: `~/dbt-learning/notes/session_progress.md`
 Update that file at the end of each session to track progress.
 
 ---
 
-## Activate the shared venv manually
+## Activate the learning_dbt venv manually
 
 ```bash
-source /c/Users/Angelo/Documents/dbt-projects/shared-venv/Scripts/activate
+source ~/dbt-learning/.venv/bin/activate
 ```
 
-All dbt projects use this one venv. You only need to activate it once per terminal session.
+Each dbt project has its own `.venv`. Activate it once per terminal session.
 
 ---
 
@@ -72,12 +73,13 @@ dbt docs serve       # open docs in browser
 ## Folder structure
 
 ```
-dbt-projects/
+~/dbt-learning/
 ├── learning_dbt/      ← permanent concept sandbox
+│   └── .venv/         ← Python venv for this project
 ├── experiments/       ← throwaway projects (one per concept)
+│   └── <name>/.venv/  ← each gets its own venv
 ├── projects/          ← real projects you plan to keep
 ├── airflow/dags/      ← Airflow DAGs that orchestrate dbt runs
-├── shared-venv/       ← one Python venv for all dbt projects
 ├── notes/             ← learning notes, cheatsheet, session progress
 ├── .env               ← Snowflake credentials (never commit)
 └── new_project.sh     ← project scaffolding script

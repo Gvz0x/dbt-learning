@@ -9,7 +9,7 @@ Learning dbt using a marketing funnel project built on Snowflake's sample data.
 
 ## Environment
 - dbt 1.11.7 with Snowflake adapter
-- Virtual env: shared at `../shared-venv/` — activate with `source /c/Users/Angelo/Documents/dbt-projects/shared-venv/Scripts/activate`
+- Virtual env: per-project at `../.venv/` — activate with `source ~/dbt-learning/.venv/bin/activate`
 - Snowflake profile: `learning_dbt` in `~/.dbt/profiles.yml`
 - Data source: `SNOWFLAKE_SAMPLE_DATA.TPCDS_SF10TCL`
 

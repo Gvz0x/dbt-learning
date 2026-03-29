@@ -3,7 +3,7 @@ with source as (
     select * from {{ source('tpcds', 'web_sales') }}
     where ws_sold_date_sk in (
         select d_date_sk
-        from SNOWFLAKE_SAMPLE_DATA.TPCDS_SF10TCL.DATE_DIM
+        from {{ source('tpcds', 'date_dim') }}
         where d_year = 2003
     )
 
@@ -27,4 +27,15 @@ renamed as (
 
 )
 
-select * from renamed
+select
+    order_number,
+    sold_date_sk,
+    customer_sk,
+    promo_sk,
+    quantity,
+    sales_price,
+    net_paid,
+    net_profit,
+    coupon_amount,
+    discount_amount
+from renamed

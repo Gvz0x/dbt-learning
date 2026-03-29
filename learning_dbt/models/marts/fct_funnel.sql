@@ -53,4 +53,32 @@ joined as (
 
 )
 
-select * from joined
+select
+    -- promotion details
+    promo_id,
+    promo_name,
+    promo_purpose,
+    promo_cost,
+    channel_email,
+    channel_tv,
+    channel_radio,
+    channel_direct_mail,
+    is_discount_active,
+
+    -- customer details
+    customer_id,
+    first_name,
+    last_name,
+    email,
+    is_preferred_customer,
+
+    -- sale details
+    order_number,
+    sold_date_sk,
+    quantity,
+    sales_price,
+    net_paid,
+    net_profit,
+    coupon_amount,
+    discount_amount
+from joined

@@ -31,7 +31,8 @@ models:
         description: "Flag indicating if the customer is preferred ('Y' or 'N')."
         tests:
           - accepted_values:
-              values: ['Y', 'N']
+              arguments:
+                values: ['Y', 'N']
 
       - name: birth_country
         description: "Country where the customer was born."
@@ -51,8 +52,9 @@ models:
         description: "Foreign key to stg_customers.customer_sk."
         tests:
           - relationships:
-              to: ref('stg_customers')
-              field: customer_sk
+              arguments:
+                to: ref('stg_customers')
+                field: customer_sk
 
       - name: promo_sk
         description: "Foreign key to stg_promotions.promo_sk."
@@ -102,7 +104,8 @@ models:
         description: "Was this promotion sent via email? ('Y' or 'N')"
         tests:
           - accepted_values:
-              values: ['Y', 'N']
+              arguments:
+                values: ['Y', 'N']
 
       - name: channel_tv
         description: "Was this promotion on TV? ('Y' or 'N')"
@@ -120,4 +123,5 @@ models:
         description: "Flag indicating if a discount is active ('Y' or 'N')."
         tests:
           - accepted_values:
-              values: ['Y', 'N']
+              arguments:
+                values: ['Y', 'N']
