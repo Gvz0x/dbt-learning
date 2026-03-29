@@ -141,18 +141,20 @@ source ~/.zshrc
 
 ---
 
-## Step 8 — Install Claude Code
+## Step 8 — Install Claude Code and set up commands
 
 ```bash
 npm install -g @anthropic-ai/claude-code
 ```
 
-Then copy your custom commands:
+Copy the custom commands from the repo:
 ```bash
 mkdir -p ~/.claude/commands
-# Copy dbt-learn.md and dbt-quiz.md from your Windows machine
-# or recreate them — they're in ~/.claude/commands/ on Windows
+cp ~/Documents/dbt-projects/claude-commands/dbt-learn.md ~/.claude/commands/
+cp ~/Documents/dbt-projects/claude-commands/dbt-quiz.md ~/.claude/commands/
 ```
+
+The commands already use `~/Documents/dbt-projects/` paths so they work on Mac without any edits.
 
 ---
 
