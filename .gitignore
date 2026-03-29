@@ -1,0 +1,12 @@
+# Credentials — never commit these
+.env
+
+# Virtual environments
+shared-venv/
+*-venv/
+venv/
+
+# dbt build artifacts
+target/
+dbt_packages/
+logs/

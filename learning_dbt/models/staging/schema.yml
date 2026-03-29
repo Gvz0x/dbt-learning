@@ -1,0 +1,123 @@
+version: 2
+
+models:
+  - name: stg_customers
+    description: "Cleans and renames columns from the raw CUSTOMER table."
+    columns:
+      - name: customer_sk
+        description: "Surrogate key for the customer (from c_customer_sk)."
+        tests:
+          - unique
+          - not_null
+
+      - name: customer_id
+        description: "Natural business key for the customer (from c_customer_id)."
+        tests:
+          - not_null
+
+      - name: first_name
+        description: "Customer first name."
+
+      - name: last_name
+        description: "Customer last name."
+
+      - name: email
+        description: "Customer email address."
+
+      - name: birth_year
+        description: "Year the customer was born."
+
+      - name: is_preferred_customer
+        description: "Flag indicating if the customer is preferred ('Y' or 'N')."
+        tests:
+          - accepted_values:
+              values: ['Y', 'N']
+
+      - name: birth_country
+        description: "Country where the customer was born."
+
+  - name: stg_web_sales
+    description: "Cleans and renames columns from the raw WEB_SALES table. Filtered to year 2003 only."
+    columns:
+      - name: order_number
+        description: "Web order number (from ws_order_number)."
+        tests:
+          - not_null
+
+      - name: sold_date_sk
+        description: "Surrogate key for the sale date."
+
+      - name: customer_sk
+        description: "Foreign key to stg_customers.customer_sk."
+        tests:
+          - relationships:
+              to: ref('stg_customers')
+              field: customer_sk
+
+      - name: promo_sk
+        description: "Foreign key to stg_promotions.promo_sk."
+
+      - name: quantity
+        description: "Number of items purchased."
+
+      - name: sales_price
+        description: "Price of the sale."
+
+      - name: net_paid
+        description: "Amount actually paid after discounts."
+
+      - name: net_profit
+        description: "Net profit from the sale."
+
+      - name: coupon_amount
+        description: "Dollar value of any coupon applied."
+
+      - name: discount_amount
+        description: "Dollar value of the extended discount."
+
+  - name: stg_promotions
+    description: "Cleans and renames columns from the raw PROMOTION table."
+    columns:
+      - name: promo_sk
+        description: "Surrogate key for the promotion."
+        tests:
+          - unique
+          - not_null
+
+      - name: promo_id
+        description: "Natural business key for the promotion."
+        tests:
+          - not_null
+
+      - name: promo_name
+        description: "Display name of the promotion."
+
+      - name: promo_cost
+        description: "Cost to run the promotion."
+
+      - name: promo_purpose
+        description: "Business purpose of the promotion."
+
+      - name: channel_email
+        description: "Was this promotion sent via email? ('Y' or 'N')"
+        tests:
+          - accepted_values:
+              values: ['Y', 'N']
+
+      - name: channel_tv
+        description: "Was this promotion on TV? ('Y' or 'N')"
+
+      - name: channel_radio
+        description: "Was this promotion on radio? ('Y' or 'N')"
+
+      - name: channel_catalog
+        description: "Was this promotion in a catalog? ('Y' or 'N')"
+
+      - name: channel_direct_mail
+        description: "Was this promotion sent via direct mail? ('Y' or 'N')"
+
+      - name: is_discount_active
+        description: "Flag indicating if a discount is active ('Y' or 'N')."
+        tests:
+          - accepted_values:
+              values: ['Y', 'N']

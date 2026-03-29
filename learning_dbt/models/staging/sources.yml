@@ -1,0 +1,10 @@
+version: 2
+
+sources:
+  - name: tpcds
+    database: SNOWFLAKE_SAMPLE_DATA
+    schema: TPCDS_SF10TCL
+    tables:
+      - name: customer
+      - name: web_sales
+      - name: promotion

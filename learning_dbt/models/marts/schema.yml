@@ -1,0 +1,78 @@
+version: 2
+
+models:
+  - name: fct_funnel
+    description: >
+      Marketing funnel fact table. Joins web sales with customer and promotion
+      dimensions. Contains one row per web sale line item for the year 2003.
+      15.7 million rows.
+    columns:
+      - name: order_number
+        description: "Web order number. One order can have multiple line items."
+        tests:
+          - not_null
+
+      - name: promo_id
+        description: "Business key of the promotion applied to this sale."
+
+      - name: promo_name
+        description: "Display name of the promotion."
+
+      - name: promo_purpose
+        description: "Business purpose of the promotion."
+
+      - name: promo_cost
+        description: "Cost to run the promotion."
+
+      - name: channel_email
+        description: "Was the promotion sent via email? ('Y' or 'N')"
+
+      - name: channel_tv
+        description: "Was the promotion on TV? ('Y' or 'N')"
+
+      - name: channel_radio
+        description: "Was the promotion on radio? ('Y' or 'N')"
+
+      - name: channel_direct_mail
+        description: "Was the promotion sent via direct mail? ('Y' or 'N')"
+
+      - name: is_discount_active
+        description: "Flag indicating if a discount was active on this promotion."
+
+      - name: customer_id
+        description: "Business key of the customer who made the purchase."
+
+      - name: first_name
+        description: "Customer first name."
+
+      - name: last_name
+        description: "Customer last name."
+
+      - name: email
+        description: "Customer email address."
+
+      - name: is_preferred_customer
+        description: "Flag indicating if the customer is preferred ('Y' or 'N')."
+
+      - name: sold_date_sk
+        description: "Surrogate key for the date of sale."
+        tests:
+          - not_null
+
+      - name: quantity
+        description: "Number of items purchased in this line item."
+
+      - name: sales_price
+        description: "Sale price of the item."
+
+      - name: net_paid
+        description: "Amount actually paid after discounts."
+
+      - name: net_profit
+        description: "Net profit from this sale line item."
+
+      - name: coupon_amount
+        description: "Dollar value of any coupon applied."
+
+      - name: discount_amount
+        description: "Dollar value of the extended discount."
