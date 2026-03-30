@@ -66,11 +66,12 @@ stg_customers  stg_web_sales  stg_promotions   ← views (staging)
 - [x] Build workflow — write → compile → run -s → query → test loop
 - [x] Tests — not_null, unique, accepted_values, relationships
 - [x] Documentation — dbt docs generate + dbt docs serve, lineage graph
+- [x] Singular tests — custom .sql tests for business rules, severity warn/error
 
 ## Up Next (in order)
 
 ### Fill gaps first (same level as what's already learned)
-- [ ] Singular tests — custom .sql tests for business logic assertions
+- [x] Singular tests — custom .sql tests for business logic assertions
 - [ ] Doc blocks — reusable Markdown descriptions, the professional documentation standard
 - [ ] Ephemeral materialization — completes the materialization picture
 - [ ] Configurations vs properties — knowing the difference prevents silent bugs
