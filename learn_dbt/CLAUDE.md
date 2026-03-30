@@ -9,14 +9,14 @@ Learning dbt using a marketing funnel project built on Snowflake's sample data.
 
 ## Environment
 - dbt 1.11.7 with Snowflake adapter
-- Virtual env: per-project at `../.venv/` — activate with `source ~/dbt-learning/.venv/bin/activate`
+- Virtual env: per-project at `../.venv/` — activate with `source ~/Dbt/.venv/bin/activate`
 - Snowflake profile: `learning_dbt` in `~/.dbt/profiles.yml`
 - Data source: `SNOWFLAKE_SAMPLE_DATA.TPCDS_SF10TCL`
 
 ## Project Structure
 - `models/staging/` — views that clean raw source tables
 - `models/marts/` — tables with joined business logic
-- `models/example/` — dbt scaffold examples, ignore these
+- `models/staging/` and `models/marts/` only — example folder was deleted
 
 ## Key Decisions Made
 - `stg_web_sales` is filtered to year 2003 only (other years have 1.4B rows each)

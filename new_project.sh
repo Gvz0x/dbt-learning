@@ -3,7 +3,7 @@
 
 set -e
 
-PROJECTS_DIR="$HOME/dbt-learning"
+PROJECTS_DIR="$HOME/Dbt"
 PROFILES="$HOME/.dbt/profiles.yml"
 
 # ── Load credentials from .env ─────────────────────────────────────────────────

@@ -36,16 +36,16 @@ brew install gh
 
 ```bash
 gh auth login
-git clone https://github.com/Gvz0x/dbt-learning.git ~/dbt-learning
-cd ~/dbt-learning
+git clone https://github.com/Gvz0x/dbt-learning.git ~/Dbt
+cd ~/Dbt
 ```
 
 ---
 
-## Step 3 — Set up the learning_dbt venv
+## Step 3 — Set up the learn_dbt venv
 
 ```bash
-cd ~/dbt-learning
+cd ~/Dbt
 pyenv local 3.11.9
 python3 -m venv .venv
 source .venv/bin/activate
@@ -58,7 +58,7 @@ dbt --version   # confirm it shows 1.11.7
 ## Step 4 — Recreate .env (not in git — credentials stay off GitHub)
 
 ```bash
-cat > ~/dbt-learning/.env << 'EOF'
+cat > ~/Dbt/.env << 'EOF'
 DBT_ACCOUNT="kf42605.southeast-asia.azure"
 DBT_USER="Gio"
 DBT_PASSWORD="your-password-here"
@@ -93,8 +93,8 @@ EOF
 
 Test the connection:
 ```bash
-cd ~/dbt-learning/learning_dbt
-source ~/dbt-learning/.venv/bin/activate
+cd ~/Dbt/learn_dbt
+source ~/Dbt/.venv/bin/activate
 dbt debug
 ```
 
@@ -107,13 +107,13 @@ cat >> ~/.zshrc << 'EOF'
 
 # ── dbt shortcut ──────────────────────────────────────────────────────────────
 newdbt() {
-  bash ~/dbt-learning/new_project.sh "$1"
+  bash ~/Dbt/new_project.sh "$1"
 }
 
 # ── dbt learning session shortcut ─────────────────────────────────────────────
 dbt-learn() {
-  cd ~/dbt-learning/learning_dbt
-  source ~/dbt-learning/.venv/bin/activate
+  cd ~/Dbt/learn_dbt
+  source ~/Dbt/.venv/bin/activate
   claude
 }
 EOF
@@ -128,13 +128,14 @@ source ~/.zshrc
 ```bash
 npm install -g @anthropic-ai/claude-code
 ```
+
 ---
 
 ## Step 8 — Verify everything works
 
 ```bash
-source ~/dbt-learning/.venv/bin/activate
-cd ~/dbt-learning/learning_dbt
+source ~/Dbt/.venv/bin/activate
+cd ~/Dbt/learn_dbt
 dbt debug
 dbt compile -s fct_funnel
 dbt-learn
@@ -146,7 +147,7 @@ dbt-learn
 
 | What | Windows | Mac |
 |------|---------|-----|
-| Projects folder | `/c/Users/Angelo/Documents/dbt-projects` | `~/dbt-learning` |
+| Projects folder | `/c/Users/Angelo/Documents/dbt-projects` | `~/Dbt` |
 | Venv location | `shared-venv/` (one for all) | `.venv/` (one per project) |
 | Venv activate | `Scripts/activate` | `bin/activate` |
 | Shell config | `~/.bashrc` | `~/.zshrc` |

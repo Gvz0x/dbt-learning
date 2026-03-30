@@ -1,13 +1,10 @@
-# Credentials — never commit these
-.env
-
-# Virtual environments
-.venv/
-
 # dbt build artifacts
 target/
 dbt_packages/
 logs/
+
+# Virtual environments
+.venv/
 
 # Mac system files
 .DS_Store

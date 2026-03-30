@@ -18,8 +18,8 @@ newdbt <project_name>
 | File | Location | Purpose |
 |------|----------|---------|
 | Shortcut function | `~/.zshrc` | Makes `newdbt` available in every terminal |
-| Script | `~/dbt-learning/new_project.sh` | The actual logic |
-| Credentials | `~/dbt-learning/.env` | Update here if Snowflake details change (never commit this file) |
+| Script | `~/Dbt/new_project.sh` | The actual logic |
+| Credentials | `~/Dbt/.env` | Update here if Snowflake details change (never commit this file) |
 | Per-project venv | `<project>/.venv/` | Isolated Python env per dbt project |
 
 ### If `newdbt` is not recognised in a terminal
@@ -36,19 +36,16 @@ source ~/.zshrc
 dbt-learn
 ```
 
-Navigates to `learning_dbt`, activates the venv, and opens Claude.
-Claude automatically reads your session notes and picks up where you left off
-via the `/dbt-learn` custom command.
-
-Session notes are at: `~/dbt-learning/notes/session_progress.md`
+Navigates to `learn_dbt`, activates the venv, and opens Claude.
+Session notes are at: `~/Dbt/notes/session_progress.md`
 Update that file at the end of each session to track progress.
 
 ---
 
-## Activate the learning_dbt venv manually
+## Activate the learn_dbt venv manually
 
 ```bash
-source ~/dbt-learning/.venv/bin/activate
+source ~/Dbt/.venv/bin/activate
 ```
 
 Each dbt project has its own `.venv`. Activate it once per terminal session.
@@ -73,8 +70,8 @@ dbt docs serve       # open docs in browser
 ## Folder structure
 
 ```
-~/dbt-learning/
-├── learning_dbt/      ← permanent concept sandbox
+~/Dbt/
+├── learn_dbt/         ← permanent concept sandbox
 │   └── .venv/         ← Python venv for this project
 ├── experiments/       ← throwaway projects (one per concept)
 │   └── <name>/.venv/  ← each gets its own venv
