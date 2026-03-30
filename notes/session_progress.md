@@ -1,12 +1,12 @@
 # Learning Session Progress
 
 ## Where We Left Off
-Completed Tests. Ready to start **Documentation** next session.
+Completed Documentation. Ready to start **Incremental Models** next session.
 
 ## What Has Been Built
 
-### Project: `learning_dbt`
-Location: `~/dbt-learning/learning_dbt/`
+### Project: `learn_dbt`
+Location: `~/Dbt/learn_dbt/`
 
 ### Models
 | Model | Type | Location | Purpose |
@@ -65,14 +65,15 @@ stg_customers  stg_web_sales  stg_promotions   ← views (staging)
 - [x] Compiling — what `dbt compile` does and when to use it
 - [x] Build workflow — write → compile → run -s → query → test loop
 - [x] Tests — not_null, unique, accepted_values, relationships
+- [x] Documentation — dbt docs generate + dbt docs serve, lineage graph
 
 ## Up Next
-- [ ] Documentation — descriptions + `dbt docs serve`
+- [ ] Incremental models — handling large tables efficiently
 
 ## Environment
 - pyenv Python 3.11.9
-- Per-project venv at `~/dbt-learning/.venv/`
-- Credentials in `~/dbt-learning/.env` — never committed
+- Per-project venv at `~/Dbt/learn_dbt/.venv/`
+- Credentials in `~/Dbt/.env` — never committed
 - `dbt-learn` shell shortcut in `~/.zshrc`
 - `newdbt` shell shortcut in `~/.zshrc` for scaffolding new projects
 
@@ -81,3 +82,4 @@ stg_customers  stg_web_sales  stg_promotions   ← views (staging)
 - Filtered `stg_web_sales` to 2003 only (15.7M rows vs 1.4B per year)
 - Example scaffold models deleted — they were dbt init boilerplate, not real models
 - Fixed 3 code quality issues: hardcoded paths, select *, deprecated test syntax
+- Folder renamed from `dbt-learning/learning_dbt` to `Dbt/learn_dbt`
