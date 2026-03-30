@@ -67,8 +67,33 @@ stg_customers  stg_web_sales  stg_promotions   ← views (staging)
 - [x] Tests — not_null, unique, accepted_values, relationships
 - [x] Documentation — dbt docs generate + dbt docs serve, lineage graph
 
-## Up Next
-- [ ] Incremental models — handling large tables efficiently
+## Up Next (in order)
+
+### Fill gaps first (same level as what's already learned)
+- [ ] Singular tests — custom .sql tests for business logic assertions
+- [ ] Doc blocks — reusable Markdown descriptions, the professional documentation standard
+- [ ] Ephemeral materialization — completes the materialization picture
+- [ ] Configurations vs properties — knowing the difference prevents silent bugs
+
+### Core intermediate
+- [ ] Seeds — CSV loading, fills out the full DAG picture
+- [ ] Packages (dbt-utils) — standard library, prereq for effective macros
+- [ ] Incremental models — most important performance concept, Snowflake merge/delete+insert strategies
+- [ ] Jinja & Macros — reusable SQL logic, DRY principles
+- [ ] Custom schemas & environments — required before any deployment
+- [ ] Snapshots — SCD Type 2 history tracking
+- [ ] Hooks & operations — pre/post model SQL, Snowflake admin tasks
+- [ ] Variables — parameterize macros and incremental filters
+
+### Deployment (hard prerequisite for Semantic Layer)
+- [ ] Jobs & environments — production deployment on dbt Cloud, generates semantic manifest
+- [ ] Exposures — DAG documentation for downstream consumers (dashboards, ML models)
+
+### dbt Semantic Layer (mentor priority)
+- [ ] MetricFlow concepts — the query engine behind the Semantic Layer
+- [ ] Semantic models — entities, dimensions, measures on top of mart models
+- [ ] Metrics — simple → ratio → derived → cumulative → conversion
+- [ ] Saved queries & exports — pre-computed metric snapshots for BI tools
 
 ## Environment
 - pyenv Python 3.11.9
