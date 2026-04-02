@@ -5,13 +5,13 @@ models:
     description: "Cleans and renames columns from the raw CUSTOMER table."
     columns:
       - name: customer_sk
-        description: "Surrogate key for the customer (from c_customer_sk)."
+        description: "{{ doc('customer_sk') }}"
         tests:
           - unique
           - not_null
 
       - name: customer_id
-        description: "Natural business key for the customer (from c_customer_id)."
+        description: "{{ doc('customer_id') }}" 
         tests:
           - not_null
 
@@ -49,7 +49,7 @@ models:
         description: "Surrogate key for the sale date."
 
       - name: customer_sk
-        description: "Foreign key to stg_customers.customer_sk."
+        description: "{{ doc('customer_sk') }}"
         tests:
           - relationships:
               arguments:
@@ -57,7 +57,7 @@ models:
                 field: customer_sk
 
       - name: promo_sk
-        description: "Foreign key to stg_promotions.promo_sk."
+        description: "{{ doc('promo_sk') }}"
 
       - name: quantity
         description: "Number of items purchased."
@@ -81,7 +81,7 @@ models:
     description: "Cleans and renames columns from the raw PROMOTION table."
     columns:
       - name: promo_sk
-        description: "Surrogate key for the promotion."
+        description: "{{ doc('promo_sk') }}"
         tests:
           - unique
           - not_null

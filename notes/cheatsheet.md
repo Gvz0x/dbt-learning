@@ -56,6 +56,24 @@ models:
 {{ source('source', 'table') }}  -- reference a raw source table
 {{ config(materialized='table') }} -- set model config inline
 {{ var('my_var') }}              -- use a project variable
+{{ doc('block_name') }}          -- reference a doc block (in schema.yml descriptions)
+```
+
+---
+
+## Doc Blocks
+
+Define in any `.md` file inside `models/`:
+```markdown
+{% docs customer_id %}
+The unique identifier for a customer.
+{% enddocs %}
+```
+
+Reference in `schema.yml`:
+```yaml
+- name: customer_id
+  description: "{{ doc('customer_id') }}"
 ```
 
 ---

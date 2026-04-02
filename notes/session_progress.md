@@ -1,7 +1,7 @@
 # Learning Session Progress
 
 ## Where We Left Off
-Completed Documentation. Ready to start **Incremental Models** next session.
+Completed Ephemeral Materialization. Ready to start **Configurations vs Properties** next session.
 
 ## What Has Been Built
 
@@ -72,8 +72,8 @@ stg_customers  stg_web_sales  stg_promotions   ← views (staging)
 
 ### Fill gaps first (same level as what's already learned)
 - [x] Singular tests — custom .sql tests for business logic assertions
-- [ ] Doc blocks — reusable Markdown descriptions, the professional documentation standard
-- [ ] Ephemeral materialization — completes the materialization picture
+- [x] Doc blocks — reusable Markdown descriptions, the professional documentation standard
+- [x] Ephemeral materialization — completes the materialization picture
 - [ ] Configurations vs properties — knowing the difference prevents silent bugs
 
 ### Core intermediate
