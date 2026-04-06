@@ -1,7 +1,7 @@
 # Learning Session Progress
 
 ## Where We Left Off
-Completed Ephemeral Materialization. Ready to start **Configurations vs Properties** next session.
+Completed Configurations vs Properties. Ready to start **Seeds** next session.
 
 ## What Has Been Built
 
@@ -74,7 +74,7 @@ stg_customers  stg_web_sales  stg_promotions   ← views (staging)
 - [x] Singular tests — custom .sql tests for business logic assertions
 - [x] Doc blocks — reusable Markdown descriptions, the professional documentation standard
 - [x] Ephemeral materialization — completes the materialization picture
-- [ ] Configurations vs properties — knowing the difference prevents silent bugs
+- [x] Configurations vs properties — knowing the difference prevents silent bugs
 
 ### Core intermediate
 - [ ] Seeds — CSV loading, fills out the full DAG picture

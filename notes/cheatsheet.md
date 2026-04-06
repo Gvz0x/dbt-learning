@@ -23,6 +23,20 @@ dbt debug            # test your Snowflake connection
 
 ---
 
+## Configurations vs Properties
+
+| | What it is | Where it lives |
+|---|---|---|
+| **Config** | How dbt builds the model | `dbt_project.yml`, `schema.yml`, `.sql` config block |
+| **Property** | Metadata — descriptions + tests | `schema.yml` only |
+
+Override hierarchy (highest to lowest priority):
+```
+SQL config block  >  schema.yml  >  dbt_project.yml
+```
+
+---
+
 ## Materializations
 
 | Type | Creates | Use when |

@@ -79,9 +79,13 @@ Each note must contain:
 - Build workflow
 - Generic tests (not_null, unique, accepted_values, relationships)
 - Documentation (dbt docs generate/serve, lineage graph)
+- Singular tests
+- Doc blocks
+- Ephemeral materialization
+- Configurations vs properties
 
 ## Concepts Not Yet Covered — teach in this order
-1. Singular tests ← UP NEXT
+1. Seeds ← UP NEXT
 2. Doc blocks
 3. Ephemeral materialization
 4. Configurations vs properties
