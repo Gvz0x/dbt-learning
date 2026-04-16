@@ -1,7 +1,7 @@
 # Learning Session Progress
 
 ## Where We Left Off
-Completed Configurations vs Properties. Ready to start **Seeds** next session.
+Completed **Incremental models**. Ready to start **Jinja & Macros** next session.
 
 ## What Has Been Built
 
@@ -77,9 +77,9 @@ stg_customers  stg_web_sales  stg_promotions   ← views (staging)
 - [x] Configurations vs properties — knowing the difference prevents silent bugs
 
 ### Core intermediate
-- [ ] Seeds — CSV loading, fills out the full DAG picture
-- [ ] Packages (dbt-utils) — standard library, prereq for effective macros
-- [ ] Incremental models — most important performance concept, Snowflake merge/delete+insert strategies
+- [x] Seeds — CSV loading, fills out the full DAG picture
+- [x] Packages (dbt-utils) — standard library, prereq for effective macros
+- [x] Incremental models — most important performance concept, Snowflake merge/delete+insert strategies
 - [ ] Jinja & Macros — reusable SQL logic, DRY principles
 - [ ] Custom schemas & environments — required before any deployment
 - [ ] Snapshots — SCD Type 2 history tracking

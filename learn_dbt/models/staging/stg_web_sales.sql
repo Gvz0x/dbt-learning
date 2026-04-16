@@ -13,6 +13,7 @@ renamed as (
 
     select
         ws_order_number              as order_number,
+        ws_item_sk                   as item_sk,
         ws_sold_date_sk              as sold_date_sk,
         ws_bill_customer_sk          as customer_sk,
         ws_promo_sk                  as promo_sk,
@@ -29,6 +30,7 @@ renamed as (
 
 select
     order_number,
+    item_sk,
     sold_date_sk,
     customer_sk,
     promo_sk,

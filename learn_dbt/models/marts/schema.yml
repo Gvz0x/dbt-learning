@@ -7,6 +7,17 @@ models:
       dimensions. Contains one row per web sale line item for the year 2003.
       15.7 million rows.
     columns:
+      - name: funnel_id
+        description: "Surrogate key for the marketing funnel fact table."
+        tests:
+          - not_null
+          - unique
+
+      - name: item_sk
+        description: "Surrogate key for the item sold in this line item."
+        tests:
+          - not_null
+
       - name: order_number
         description: "Web order number. One order can have multiple line items."
         tests:
@@ -67,6 +78,11 @@ models:
 
       - name: net_paid
         description: "Amount actually paid after discounts."
+        tests:
+          - dbt_utils.expression_is_true:
+              arguments:
+                expression: ">= 0"
+              severity: warn
 
       - name: net_profit
         description: "Net profit from this sale line item."

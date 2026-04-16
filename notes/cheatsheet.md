@@ -143,6 +143,61 @@ sources:
 
 ---
 
+## Incremental Models
+
+Config block:
+```sql
+{{ config(
+    materialized='incremental',
+    unique_key='funnel_id'
+) }}
+```
+
+Incremental filter pattern (in the CTE with the date column):
+```sql
+{% if is_incremental() %}
+    where sold_date_sk > (select max(sold_date_sk) from {{ this }})
+{% endif %}
+```
+
+```bash
+dbt run -s fct_funnel                    # incremental run (new rows only)
+dbt run -s fct_funnel --full-refresh     # drop and rebuild entire table
+```
+
+---
+
+## Packages
+
+```bash
+dbt deps   # install packages from packages.yml (like pip install)
+```
+
+`packages.yml` (project root):
+```yaml
+packages:
+  - package: dbt-labs/dbt_utils
+    version: 1.3.0
+```
+
+`dbt_utils` macros:
+```sql
+-- Surrogate key from multiple columns (first column in SELECT)
+{{ dbt_utils.generate_surrogate_key(['order_number', 'item_sk']) }} as funnel_id
+```
+
+`dbt_utils` tests in schema.yml:
+```yaml
+- name: net_paid
+  tests:
+    - dbt_utils.expression_is_true:
+        arguments:
+          expression: ">= 0"    # column name injected automatically
+        severity: warn
+```
+
+---
+
 ## seeds
 
 ```bash
