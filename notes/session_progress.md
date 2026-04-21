@@ -1,7 +1,7 @@
 # Learning Session Progress
 
 ## Where We Left Off
-Completed **Incremental models**. Ready to start **Jinja & Macros** next session.
+Completed **Jinja & Macros**. Ready to start **Custom schemas & environments** next session.
 
 ## What Has Been Built
 
@@ -80,7 +80,7 @@ stg_customers  stg_web_sales  stg_promotions   ← views (staging)
 - [x] Seeds — CSV loading, fills out the full DAG picture
 - [x] Packages (dbt-utils) — standard library, prereq for effective macros
 - [x] Incremental models — most important performance concept, Snowflake merge/delete+insert strategies
-- [ ] Jinja & Macros — reusable SQL logic, DRY principles
+- [x] Jinja & Macros — reusable SQL logic, DRY principles
 - [ ] Custom schemas & environments — required before any deployment
 - [ ] Snapshots — SCD Type 2 history tracking
 - [ ] Hooks & operations — pre/post model SQL, Snowflake admin tasks

@@ -80,11 +80,11 @@ select
     promo_name,
     promo_purpose,
     promo_cost,
-    channel_email,
-    channel_tv,
-    channel_radio,
-    channel_direct_mail,
-    is_discount_active,
+    {{ yn_to_boolean('channel_email') }} as channel_email,
+    {{ yn_to_boolean('channel_tv') }} as channel_tv,
+    {{ yn_to_boolean('channel_radio') }} as channel_radio,
+    {{ yn_to_boolean('channel_direct_mail') }} as channel_direct_mail,
+    {{ yn_to_boolean('is_discount_active') }} as is_discount_active,
     budget_tier,
 
     -- customer details
@@ -92,7 +92,7 @@ select
     first_name,
     last_name,
     email,
-    is_preferred_customer,
+    {{ yn_to_boolean('is_preferred_customer') }} as is_preferred_customer,
 
     -- sale details
     order_number,

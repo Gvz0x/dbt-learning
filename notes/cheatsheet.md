@@ -143,6 +143,31 @@ sources:
 
 ---
 
+## Jinja & Macros
+
+Define in `macros/my_macro.sql`:
+```sql
+{% macro yn_to_boolean(column_name) %}
+    case
+        when {{ column_name }} = 'Y' then true
+        when {{ column_name }} = 'N' then false
+        else null
+    end
+{% endmacro %}
+```
+
+Call in any model:
+```sql
+{{ yn_to_boolean('channel_email') }} as channel_email
+```
+
+| Syntax | Purpose |
+|--------|---------|
+| `{{ }}` | Output a value (expressions, macro calls) |
+| `{% %}` | Control flow (if, for, macro definitions) |
+
+---
+
 ## Incremental Models
 
 Config block:
